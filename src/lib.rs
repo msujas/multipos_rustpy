@@ -11,13 +11,7 @@ use std::{fs::create_dir, path::Path, time::{Instant}};
 use multipos_rust::functions::MultiFile;
 use pyo3::prelude::*;
 
-    /// Formats the sum of two numbers as string.
-    #[pyfunction]
-    fn sum_as_string(a: usize, b: usize) -> PyResult<String> {
-        Ok((a + b).to_string())
-    }
-
-
+    /// Rust extension function for processing total-scattering patterns from multiple positions
     #[pyfunction]
     fn integrate_rp(cbfdir:String, ponidir:String, tthmin: f64, tthmax: f64, tthbins: usize, chimin: f64, chimax:f64,
                     chibins: usize, pfactor: f64, maskfile:Option<String>, savecakes:bool, outsubdir:String, cakemaskfile:Option<String>){

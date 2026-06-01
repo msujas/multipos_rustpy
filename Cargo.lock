@@ -784,7 +784,7 @@ dependencies = [
 [[package]]
 name = "multipos_rust"
 version = "0.1.0"
-source = "git+https://github.com/msujas/multipos_rust?branch=libtest#a7a04435f6ee72c70ec0793266e5d5cd7a3c6633"
+source = "git+https://github.com/msujas/multipos_rust#96f4b327a0f9e1d1f2053e05c61ba1810646faa0"
 dependencies = [
  "clap",
  "cryiorust",

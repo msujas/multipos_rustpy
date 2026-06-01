@@ -10,4 +10,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = "0.28.3"
-multipos_rust = {git = "https://github.com/msujas/multipos_rust",branch="libtest"}
+multipos_rust = {git = "https://github.com/msujas/multipos_rust"}
