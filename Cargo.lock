@@ -696,9 +696,9 @@ checksum = "b6d2cec3eae94f9f509c767b45932f1ada8350c4bdb85af2fcab4a3c14807981"
 
 [[package]]
 name = "libz-sys"
-version = "1.1.28"
+version = "1.1.29"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fc3a226e576f50782b3305c5ccf458698f92798987f551c6a02efe8276721e22"
+checksum = "85bc9657773828b90eeb625adff10eeac83cc21bbfd8e23a03eaa8a33c9e28d9"
 dependencies = [
  "cc",
  "libc",
@@ -784,7 +784,7 @@ dependencies = [
 [[package]]
 name = "multipos_rust"
 version = "0.1.0"
-source = "git+https://github.com/msujas/multipos_rust#96f4b327a0f9e1d1f2053e05c61ba1810646faa0"
+source = "git+https://github.com/msujas/multipos_rust#0ed55c59f55936b6bfc86f2d39a0eba5fbfdf98c"
 dependencies = [
  "clap",
  "cryiorust",
