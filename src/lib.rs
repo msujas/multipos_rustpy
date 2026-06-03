@@ -14,7 +14,8 @@ use pyo3::prelude::*;
     /// Rust extension function for processing total-scattering patterns from multiple positions
     #[pyfunction]
     fn integrate_rp(cbfdir:String, ponidir:String, tthmin: f64, tthmax: f64, tthbins: usize, chimin: f64, chimax:f64,
-                    chibins: usize, pfactor: f64, maskfile:Option<String>, savecakes:bool, outsubdir:String, cakemaskfile:Option<String>){
+                    chibins: usize, pfactor: f64, maskfile:Option<String>, savecakes:bool, outsubdir:String, cakemaskfile:Option<String>,
+                    maskdir: Option<String>){
         let timestamp = Instant::now();
         let tmp:String;
         let mask = match maskfile{
@@ -29,7 +30,7 @@ use pyo3::prelude::*;
         let avdir = format!("{}/{}", &cbfdir, &outsubdir);
         let _ = create_dir(&avdir);
         println!("collecting ponis");
-        let mf = MultiFile::build(&cbfdir, &ponidir, tthmin, tthmax, tthbins, chimin, chimax, chibins, pfactor, mask);
+        let mf = MultiFile::build(&cbfdir, &ponidir, tthmin, tthmax, tthbins, chimin, chimax, chibins, pfactor, mask, maskdir);
         let t = timestamp.elapsed();
         println!("time elapsed: {}",t.as_secs());
         mf.average_cakes(4., &cakedir, &avdir, cakemaskfile);
