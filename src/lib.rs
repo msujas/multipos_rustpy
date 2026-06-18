@@ -38,7 +38,7 @@ use pyo3::prelude::*;
                 None => 1.,
                 Some(f) => f,
             };
-            mf.integrate_fluosub(4., &cakedir, &avdir, cakemaskfile, fluo_k0, 4800);
+            mf.integrate_fluosub(4., &cakedir, &avdir, cakemaskfile, fluo_k0, tthbins*96/100);
         }
         else{
             mf.average_cakes(4., &cakedir, &avdir, cakemaskfile);
