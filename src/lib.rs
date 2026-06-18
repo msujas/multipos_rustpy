@@ -15,7 +15,7 @@ use pyo3::prelude::*;
     #[pyfunction]
     fn integrate_rp(cbfdir:String, ponidir:String, tthmin: f64, tthmax: f64, tthbins: usize, chimin: f64, chimax:f64,
                     chibins: usize, pfactor: f64, maskfile:Option<String>, savecakes:bool, outsubdir:String, cakemaskfile:Option<String>,
-                    maskdir: Option<String>){
+                    maskdir: Option<String>, fluocorrection:bool, fluok0o : Option<f64>){
         let timestamp = Instant::now();
         let tmp:String;
         let mask = match maskfile{
@@ -33,7 +33,16 @@ use pyo3::prelude::*;
         let mf = MultiFile::build(&cbfdir, &ponidir, tthmin, tthmax, tthbins, chimin, chimax, chibins, pfactor, mask, maskdir);
         let t = timestamp.elapsed();
         println!("time elapsed: {}",t.as_secs());
-        mf.average_cakes(4., &cakedir, &avdir, cakemaskfile);
+        if fluocorrection{
+            let fluo_k0 = match fluok0o{
+                None => 1.,
+                Some(f) => f,
+            };
+            mf.integrate_fluosub(4., &cakedir, &avdir, cakemaskfile, fluo_k0, 4800);
+        }
+        else{
+            mf.average_cakes(4., &cakedir, &avdir, cakemaskfile);
+        }
         println!("cakes averaged, total time {}", timestamp.elapsed().as_secs());
     }
 }
