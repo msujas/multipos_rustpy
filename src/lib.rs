@@ -8,7 +8,7 @@ use pyo3::prelude::*;
 mod multipos_rustpy {
 use std::{fs::create_dir, path::Path, time::{Instant}};
 
-use multipos_rust::functions::MultiFile;
+use multiposrust::MultiFile;
 use pyo3::prelude::*;
 
     /// Rust extension function for processing total-scattering patterns from multiple positions
