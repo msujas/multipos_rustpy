@@ -45,4 +45,19 @@ use pyo3::prelude::*;
         }
         println!("cakes averaged, total time {}", timestamp.elapsed().as_secs());
     }
+
+    #[pyfunction]
+    fn calculateflatfield(cbfdir:String,ponidir:String, tthmin: f64,tthmax: f64,tthbins: usize, chimin: f64,chimax:f64,pfactor: f64,maskfile:Option<String>,
+                            maskdir: Option<String>, ffmin:f64, ffmax:f64){
+        let t0 = Instant::now();
+        let tmp: String;
+        let mask = match maskfile{
+            None => None,
+            Some(s) => {tmp = s;
+                Some(Path::new(&tmp))},
+        };
+        let mf = MultiFile::build(&cbfdir, &ponidir, tthmin, tthmax, tthbins, chimin, chimax, 50, pfactor, mask, maskdir);
+        mf.calculateflatfield(ffmin,ffmax);
+        println!("flat field calculated. Total time {}",t0.elapsed().as_secs());
+    }
 }
