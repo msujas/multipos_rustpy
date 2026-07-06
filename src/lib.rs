@@ -57,7 +57,7 @@ use pyo3::prelude::*;
                 Some(Path::new(&tmp))},
         };
         let mf = MultiFile::build(&cbfdir, &ponidir, tthmin, tthmax, tthbins, chimin, chimax, 50, pfactor, mask, maskdir);
-        mf.calculateflatfield(ffmin,ffmax);
+        mf.calculateflatfield(&cbfdir,ffmin,ffmax);
         println!("flat field calculated. Total time {}",t0.elapsed().as_secs());
     }
 }

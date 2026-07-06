@@ -774,7 +774,7 @@ dependencies = [
 [[package]]
 name = "multiposrust"
 version = "0.1.0"
-source = "git+https://github.com/msujas/multipos_rust#296f1e3e4e91ceae1902284e70afb74c6e6e4ca1"
+source = "git+https://github.com/msujas/multipos_rust#9e12fab75b669d86c37c8232a439c1cb208edaf6"
 dependencies = [
  "chrono",
  "clap",
